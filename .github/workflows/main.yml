@@ -26,7 +26,7 @@ jobs:
         uses: betrybe/jest-evaluator-action@fix-puppeteer-dep
         with:
           repository-test-name: 'betrybe/sd-0x-project-exploring-the-protocols-tests'
-          repository-test-branch: 'atualizacao_dos_testes'
+          repository-test-branch: 'ajuste-testes'
       - name: Store evaluation step
         uses: betrybe/store-evaluation-action@v2
         with:
