@@ -28,7 +28,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Requisitos do projeto](#requisitos-do-projeto)
     - [1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido](#1-Criar-um-servidor-TCP-utilizando-o-módulo-net-que-exiba-no-console-todo-o-conteúdo-recebido)
     - [2 - Criar um script utilizando o módulo net capaz de realizar um chamada HTTP a um server](#2-Criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-HTTP-a-um-server)
-    - [3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP](#3-Criar-um-server-TCP-utilizando-o-módulo-net-capaz-de-responder-com-uma-mensagem-HTTP)
+    - [3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP](#3---criar-um-server-tcp-utilizando-o-módulo-net-capaz-de-responder-com-uma-mensagem-http)
     - [4 - Criar um túnel através do Ngrok](#4-Criar-um-túnel-através-do-Ngrok)
     - [5 - Configurar uma chamada HTTPS à API `iplocation`](#5-Configurar-uma-chamada-HTTPS-à-API-)
     - [6 - Adicionar a estrutura de início de requisição HTTP](#6-Adicionar-a-estrutura-de-início-de-requisição-HTTP)
