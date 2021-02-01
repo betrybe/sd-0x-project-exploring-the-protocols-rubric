@@ -26,19 +26,19 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [Linter](#linter)
     - [Testes](#testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
-    - [1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido](#Criar-um-servidor-TCP-utilizando-o-módulo-net-que-exiba-no-console-todo-o-conteúdo-recebido)
-    - [2 - Criar um script utilizando o módulo net capaz de realizar um chamada HTTP a um server](#Criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-HTTP-a-um-server)
-    - [3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP](#Criar-um-server-TCP-utilizando-o-módulo-net-capaz-de-responder-com-uma-mensagem-HTTP)
-    - [4 - Criar um túnel através do Ngrok](#Criar-um-túnel-através-do-Ngrok)
-    - [5 - Configurar uma chamada HTTPS à API `iplocation`](#Configurar-uma-chamada-HTTPS-à-API-)
-    - [6 - Adicionar a estrutura de início de requisição HTTP](#Adicionar-a-estrutura-de-início-de-requisição-HTTP)
-    - [7 - Adicionar a estrutura de fim da requisição HTTP](#Adicionar-a-estrutura-de-fim-da-requisição-HTTP)
-    - [8 - Identificar o endereço de IP do client](#Identificar-o-endereço-de-IP-do-client)
-    - [9 - Configurar a request HTTPS para enviar o endereço IP](#Configurar-a-request-HTTPS-para-enviar-o-endereço-IP)
-    - [10 - Responder o IP do client](#Responder-o-IP-do-client)
-    - [11 - Responder informações extraídas através do IP do client](#Responder-informações-extraídas-através-do-IP-do-client)
-    - [12 - Responder dados do dispositivo (client)](#Responder-dados-do-dispositivo-(client))
-    - [13 - Responder a request com os resources do Server](#Responder-a-request-com-os-resources-do-Server)
+    - [1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido](#1-Criar-um-servidor-TCP-utilizando-o-módulo-net-que-exiba-no-console-todo-o-conteúdo-recebido)
+    - [2 - Criar um script utilizando o módulo net capaz de realizar um chamada HTTP a um server](#2-Criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-HTTP-a-um-server)
+    - [3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP](#3-Criar-um-server-TCP-utilizando-o-módulo-net-capaz-de-responder-com-uma-mensagem-HTTP)
+    - [4 - Criar um túnel através do Ngrok](#4-Criar-um-túnel-através-do-Ngrok)
+    - [5 - Configurar uma chamada HTTPS à API `iplocation`](#5-Configurar-uma-chamada-HTTPS-à-API-)
+    - [6 - Adicionar a estrutura de início de requisição HTTP](#6-Adicionar-a-estrutura-de-início-de-requisição-HTTP)
+    - [7 - Adicionar a estrutura de fim da requisição HTTP](#7Adicionar-a-estrutura-de-fim-da-requisição-HTTP)
+    - [8 - Identificar o endereço de IP do client](#8-Identificar-o-endereço-de-IP-do-client)
+    - [9 - Configurar a request HTTPS para enviar o endereço IP](#9-Configurar-a-request-HTTPS-para-enviar-o-endereço-IP)
+    - [10 - Responder o IP do client](#10-Responder-o-IP-do-client)
+    - [11 - Responder informações extraídas através do IP do client](#11-Responder-informações-extraídas-através-do-IP-do-client)
+    - [12 - Responder dados do dispositivo (client)](#12-Responder-dados-do-dispositivo-(client))
+    - [13 - Responder a request com os resources do Server](#13-Responder-a-request-com-os-resources-do-Server)
 - [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
 - [Avisos Finais](#avisos-finais)
 
@@ -153,7 +153,7 @@ Atenção :warning: Não rode o comando npm audit fix! Ele atualiza várias depe
 
 ---
 
-### DURANTE O DESENVOLVIMENTO
+### Durante o desenvolvimento
 
 - Faça `commits` das alterações que você fizer no código regularmente
 
@@ -200,6 +200,7 @@ it.skip('it includes the text `Movie Cards Library` inside a h1 tag', () => {
 
   expect(wrapper.find('header h1').text()).toBe('Movie Cards Library');
 });
+```
 
 ## Requisitos do projeto
 
