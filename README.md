@@ -21,25 +21,25 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
   - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-  - [Revisando um pull request](#revisando-um-pull-request)
   - [Como desenvolver](#como-desenvolver)
     - [Linter](#linter)
     - [Testes](#testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
-    - [1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido](#1-Criar-um-servidor-TCP-utilizando-o-módulo-net-que-exiba-no-console-todo-o-conteúdo-recebido)
-    - [2 - Criar um script utilizando o módulo net capaz de realizar um chamada HTTP a um server](#2-Criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-HTTP-a-um-server)
+    - [1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido](#1---criar-um-servidor-tcp-utilizando-o-módulo-net-que-exiba-no-console-todo-o-conteúdo-recebido)
+    - [2 - Criar um script utilizando o módulo net capaz de realizar um chamada HTTP a um server](#2---criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-http-a-um-server)
     - [3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP](#3---criar-um-server-tcp-utilizando-o-módulo-net-capaz-de-responder-com-uma-mensagem-http)
-    - [4 - Criar um túnel através do Ngrok](#4-Criar-um-túnel-através-do-Ngrok)
-    - [5 - Configurar uma chamada HTTPS à API `iplocation`](#5-Configurar-uma-chamada-HTTPS-à-API-)
-    - [6 - Adicionar a estrutura de início de requisição HTTP](#6-Adicionar-a-estrutura-de-início-de-requisição-HTTP)
-    - [7 - Adicionar a estrutura de fim da requisição HTTP](#7Adicionar-a-estrutura-de-fim-da-requisição-HTTP)
-    - [8 - Identificar o endereço de IP do client](#8-Identificar-o-endereço-de-IP-do-client)
-    - [9 - Configurar a request HTTPS para enviar o endereço IP](#9-Configurar-a-request-HTTPS-para-enviar-o-endereço-IP)
-    - [10 - Responder o IP do client](#10-Responder-o-IP-do-client)
-    - [11 - Responder informações extraídas através do IP do client](#11-Responder-informações-extraídas-através-do-IP-do-client)
-    - [12 - Responder dados do dispositivo (client)](#12-Responder-dados-do-dispositivo-(client))
-    - [13 - Responder a request com os resources do Server](#13-Responder-a-request-com-os-resources-do-Server)
+    - [4 - Criar um túnel através do Ngrok](#4---criar-um-túnel-através-do-ngrok)
+    - [5 - Configurar uma chamada HTTPS à API `iplocation`](#5---configurar-uma-chamada-https-à-api-iplocation)
+    - [6 - Adicionar a estrutura de início de requisição HTTP](#6---adicionar-a-estrutura-de-início-de-requisição-http)
+    - [7 - Adicionar a estrutura de fim da requisição HTTP](#7---adicionar-a-estrutura-de-fim-da-requisição-http)
+    - [8 - Identificar o endereço de IP do client](#8---identificar-o-endereço-de-ip-do-client)
+    - [9 - Configurar a request HTTPS para enviar o endereço IP](#9---configurar-a-request-https-para-enviar-o-endereço-ip)
+    - [10 - Responder o IP do client](#10---responder-o-ip-do-client)
+    - [11 - Responder informações extraídas através do IP do client](#11---responder-informações-extraídas-através-do-ip-do-client)
+    - [12 - Responder dados do dispositivo (client)](#12---responder-dados-do-dispositivo-client)
+    - [13 - Responder a request com os resources do Server](#13---responder-a-request-com-os-resources-do-server)
 - [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+- [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos Finais](#avisos-finais)
 
 # Habilidades
@@ -58,7 +58,8 @@ Neste projeto, verificamos se voce é capaz de:
 
 Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
 
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
+Lembre-se que você pode consultar nosso conteúdo sobre
+[Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
 
 ---
 
@@ -94,7 +95,8 @@ Por último, alguns requisitos são dependentes uns dos outros, então recomenda
 
 ### Data de Entrega
 
-O projeto tem até a seguinte data: `DD/MM/YYYY - 14:00h`. Para ser entregue a avaliação final.
+  - Serão `X` dias de projeto.
+  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
 
 ---
 
@@ -155,16 +157,18 @@ Atenção :warning: Não rode o comando npm audit fix! Ele atualiza várias depe
 
 ### Durante o desenvolvimento
 
-- Faça `commits` das alterações que você fizer no código regularmente
+* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
 
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+* Faça `commits` das alterações que você fizer no código regularmente
 
-- Os comandos que você utilizará com mais frequência são:
+* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+
+* Os comandos que você utilizará com mais frequência são:
   1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
   2. `git add` _(para adicionar arquivos ao stage do Git)_
   3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+  5. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
+  4. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
 
 ---
 
@@ -466,25 +470,26 @@ de cada um;
 
 ---
 
-### DEPOIS DE TERMINAR O DESENVOLVIMENTO (OPCIONAL)
+### Depois de terminar o desenvolvimento
 
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
+Para **"entregar"** seu projeto, siga os passos a seguir:
 
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
+* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
+  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
+  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
 
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
+Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
+⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo **Lint** estão resolvidas! ⚠
 
 ---
 
-### REVISANDO UM PULL REQUEST
+### Revisando um pull request
 
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
+À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
+
+Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
 
 ---
 
