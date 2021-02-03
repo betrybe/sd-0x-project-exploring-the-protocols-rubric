@@ -1,8 +1,102 @@
+### Termos e acordos
+
+Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do
+Manual da Pessoa Estudante da Trybe.
+
 # Boas vindas ao projeto Explorando os protocolos
 
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por Slack! #vqv 🚀
 
 Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um Pull Request para colocar seus códigos.
+
+---
+
+# Sumário
+
+- [Habilidades](#habilidades)
+- [Entregáveis](#entregáveis)
+  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
+  - [Desenvolvimento](#desenvolvimento)
+  - [Data de Entrega](#data-de-entrega)
+- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
+  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
+  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
+  - [Como desenvolver](#como-desenvolver)
+    - [Linter](#linter)
+    - [Testes](#testes)
+- [Requisitos do projeto](#requisitos-do-projeto)
+    - [1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido](#1---criar-um-servidor-tcp-utilizando-o-módulo-net-que-exiba-no-console-todo-o-conteúdo-recebido)
+    - [2 - Criar um script utilizando o módulo net capaz de realizar um chamada HTTP a um server](#2---criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-http-a-um-server)
+    - [3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP](#3---criar-um-server-tcp-utilizando-o-módulo-net-capaz-de-responder-com-uma-mensagem-http)
+    - [4 - Criar um túnel através do Ngrok](#4---criar-um-túnel-através-do-ngrok)
+    - [5 - Configurar uma chamada HTTPS à API `iplocation`](#5---configurar-uma-chamada-https-à-api-iplocation)
+    - [6 - Adicionar a estrutura de início de requisição HTTP](#6---adicionar-a-estrutura-de-início-de-requisição-http)
+    - [7 - Adicionar a estrutura de fim da requisição HTTP](#7---adicionar-a-estrutura-de-fim-da-requisição-http)
+    - [8 - Identificar o endereço de IP do client](#8---identificar-o-endereço-de-ip-do-client)
+    - [9 - Configurar a request HTTPS para enviar o endereço IP](#9---configurar-a-request-https-para-enviar-o-endereço-ip)
+    - [10 - Responder o IP do client](#10---responder-o-ip-do-client)
+    - [11 - Responder informações extraídas através do IP do client](#11---responder-informações-extraídas-através-do-ip-do-client)
+    - [12 - Responder dados do dispositivo (client)](#12---responder-dados-do-dispositivo-client)
+    - [13 - Responder a request com os resources do Server](#13---responder-a-request-com-os-resources-do-server)
+- [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+- [Revisando um pull request](#revisando-um-pull-request)
+- [Avisos Finais](#avisos-finais)
+
+# Habilidades
+
+Neste projeto, verificamos se voce é capaz de:
+
+- Conforme aprendemos nas últimas aulas, conhecer a base do funcionamento dos computadores e das redes e suas arquiteturas nos permite utilizá-los melhor e de maneira mais eficiente, entendendo de fato o porquê de fazer algo de uma maneira ou de outra que envolva esses conceitos.
+
+- Diariamente estamos lidando com diversas máquinas e seus recursos, assim como as diversas redes.
+
+- Afinal, em nossa jornada até aqui, desenvolvemos diversos aplicativos feitos para rodar na WEB, que utilizam os diversos protocolos e outros conceitos, assim como utilizam o SO e a arquitetura dos computadores.
+
+- Além disso, teremos conhecimento para desenvolver soluções melhores, assim como lidar com ambientes/servidores publicados na internet, conhecendo alguns dos perigos de ter uma aplicação exposta a internet e sabendo como agregar segurança a ela.
+
+# Entregáveis
+
+Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
+
+Lembre-se que você pode consultar nosso conteúdo sobre
+[Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
+
+---
+
+## O que deverá ser desenvolvido
+
+Você irá refatorar parte de um servidor HTTP, porém, esse servidor não está utilizando o módulo HTTP e sim o módulo `net`, ou seja, só temos a camada de transporte implementada (TCP).
+
+O objetivo da refatoração é implementar algumas partes da camada de apresentação HTTP sem utilizar bibliotecas ou módulos para isso.
+
+Durante o projeto, iremos passar por todas as camadas da pilha de protocolos `TCP/IP`. Neste projeto, você **expandirá** o seu conhecimento de protocolos, explorando e aprendendo como lidar com as operações de rede!
+
+O _servidor_ deverá responder uma página HTML através do HTTP, mostrando algumas informações sobre o _client_, como dados sobre a localização, o dispositivo e a empresa provedora de internet.
+
+Mas não se preocupe, pois por ser um conteúdo novo e representar um desafio um pouco diferente, em cada requisito haverão explicações sobre o que está acontecendo, além do que deve ser feito, para que haja ligação entre o código e a arquitetura de redes em si.
+
+---
+
+## Desenvolvimento
+
+O servidor TCP responde com uma página HTML, porém, deverá ser adicionado a ele as informações de _control_ do protocolo HTTP que representam o início e o final da _response_.
+
+Você terá que utilizar o módulo `net` para descobrir como é uma requisição e uma resposta HTTP de maneira "crua", ou seja, sem estar encapsulada pelo protocolo.
+
+O código também realiza uma consulta à API pública [iplocation](https://iplocation.com/) onde, através de uma chamada HTTPS, passando um endereço de IP externo, é possível extrair algumas informações sobre o _client_.
+
+Utilizaremos o _ngrok_ para criar um túnel para o nosso projeto, tornando possível acessá-lo através da internet e não somente local. Dessa forma conseguiremos acessá-lo de outros dispositivos e conseguiremos ter acesso ao endereço de IP externo do _client_ que fizer a requisição através da _request_ e, então, utilizaremos esse IP para extrair as informações pela API _iplocation_.
+
+Por último, alguns requisitos são dependentes uns dos outros, então recomendamos que desenvolva o projeto fazendo os requisitos na ordem em que eles forem apresentados, isso vai **ajudar muito** no entendimento do que está sendo proposto.
+
+**E atenção!** Esse trabalho usa bastante o que vocês aprenderam nos exercícios da aula de [arquitetura de redes](https://app.betrybe.com/course/computer-science/network-architecture#exercicios). Usem-nos de referência, assim como a [documentação do módulo NET do Node.js](https://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener). E contem com nossa ajuda também no Slack! 👊 
+
+> **Dica**: Se estiver com dificuldades para avançar no projeto, dê uma olhada [nesse artigo](https://www.mattzeunert.com/2018/10/25/manually-making-an-http-request-with-nodejs.html), pois ele faz algo bem parecido com o que estamos pedindo! 😉
+
+### Data de Entrega
+
+  - Serão `X` dias de projeto.
+  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
 
 ---
 
@@ -19,6 +113,8 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 2. Instale as dependências
 
 - `npm install`
+
+Atenção :warning: Não rode o comando npm audit fix! Ele atualiza várias dependências do projeto, e essa atualização gera conflitos com o avaliador.
 
 3. Crie uma branch a partir da branch `master`
 
@@ -59,69 +155,64 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ---
 
-# Entregáveis
+### Durante o desenvolvimento
 
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
+* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
 
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
+* Faça `commits` das alterações que você fizer no código regularmente
 
----
+* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
 
-### Análise Estática 
-
-Usaremos o [ESLint](https://eslint.org/) para fazer a análise estática do seu código.
-
-Este projeto já vem com as dependências relacionadas ao _linter_ configuradas nos arquivos `package.json` nos seguintes caminhos:
-
-- `sd-0x-project-exploring-the-protocols-rubric`
-
-Para poder rodar os `ESLint` em um projeto basta executar o comando `npm install` dentro do projeto e depois `npm run lint`. Se a análise do `ESLint` encontrar problemas no seu código, tais problemas serão mostrados no seu terminal. Se não houver problema no seu código, nada será impresso no seu terminal.
-
-Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em extensions e baixar o [plugin `ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+* Os comandos que você utilizará com mais frequência são:
+  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
+  2. `git add` _(para adicionar arquivos ao stage do Git)_
+  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
+  5. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
+  4. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
 
 ---
 
-## O que deverá ser desenvolvido
+## Linter
 
-Você irá refatorar parte de um servidor HTTP, porém, esse servidor não está utilizando o módulo HTTP e sim o módulo `net`, ou seja, só temos a camada de transporte implementada (TCP).
+Para garantir a qualidade do código, vamos utilizar neste projeto o linter `ESLint`.
+Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
+e de fácil manutenção! Para rodá-lo localmente no projeto, execute o comandos abaixo:
 
-O objetivo da refatoração é implementar algumas partes da camada de apresentação HTTP sem utilizar bibliotecas ou módulos para isso.
+  ```bash
+npm run lint
+```
 
-Durante o projeto, iremos passar por todas as camadas da pilha de protocolos `TCP/IP`. Neste projeto, você **expandirá** o seu conhecimento de protocolos, explorando e aprendendo como lidar com as operações de rede!
-
-O _servidor_ deverá responder uma página HTML através do HTTP, mostrando algumas informações sobre o _client_, como dados sobre a localização, o dispositivo e a empresa provedora de internet.
-
-Mas não se preocupe, pois por ser um conteúdo novo e representar um desafio um pouco diferente, em cada requisito haverão explicações sobre o que está acontecendo, além do que deve ser feito, para que haja ligação entre o código e a arquitetura de redes em si.
-
----
-
-### Data de Entrega
-
-O projeto tem até a seguinte data: `DD/MM/YYYY - 14:00h`. Para ser entregue a avaliação final.
+⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
+ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
 
 ---
 
-## Desenvolvimento
+## Testes
 
-O servidor TCP responde com uma página HTML, porém, deverá ser adicionado a ele as informações de _control_ do protocolo HTTP que representam o início e o final da _response_.
+## Executar os testes
 
-Você terá que utilizar o módulo `net` para descobrir como é uma requisição e uma resposta HTTP de maneira "crua", ou seja, sem estar encapsulada pelo protocolo.
+Para executar os testes basta executar o comando `npm run test` que irá apresentar esse resultado abaixo:
 
-O código também realiza uma consulta à API pública [iplocation](https://iplocation.com/) onde, através de uma chamada HTTPS, passando um endereço de IP externo, é possível extrair algumas informações sobre o _client_.
+![image](testepassandoexploiter.png)
+## Dica: desativando testes
 
-Utilizaremos o _ngrok_ para criar um túnel para o nosso projeto, tornando possível acessá-lo através da internet e não somente local. Dessa forma conseguiremos acessá-lo de outros dispositivos e conseguiremos ter acesso ao endereço de IP externo do _client_ que fizer a requisição através da _request_ e, então, utilizaremos esse IP para extrair as informações pela API _iplocation_.
+Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
 
-Por último, alguns requisitos são dependentes uns dos outros, então recomendamos que desenvolva o projeto fazendo os requisitos na ordem em que eles forem apresentados, isso vai **ajudar muito** no entendimento do que está sendo proposto.
+```js
+it.skip('it includes the text `Movie Cards Library` inside a h1 tag', () => {
+  wrapper = shallow(<Header />);
 
-**E atenção!** Esse trabalho usa bastante o que vocês aprenderam nos exercícios da aula de [arquitetura de redes](https://app.betrybe.com/course/computer-science/network-architecture#exercicios). Usem-nos de referência, assim como a [documentação do módulo NET do Node.js](https://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener). E contem com nossa ajuda também no Slack! 👊 
-
-> **Dica**: Se estiver com dificuldades para avançar no projeto, dê uma olhada [nesse artigo](https://www.mattzeunert.com/2018/10/25/manually-making-an-http-request-with-nodejs.html), pois ele faz algo bem parecido com o que estamos pedindo! 😉
+  expect(wrapper.find('header h1').text()).toBe('Movie Cards Library');
+});
+```
 
 ## Requisitos do projeto
 
 ### 1 - Criar um servidor TCP utilizando o módulo net que exiba no console todo o conteúdo recebido
 
 Faça um _script_ (`exploiters/serverExploiter.js`) para criar um servidor TCP que mostre no console todo o conteúdo recebido. Depois, podemos acessá-lo pelo navegador e descobrir como é o `data` de uma requisição HTTP.
+
+### Observação técnica 
 
 > **Dica 1**: Responda para o navegador da maneira correta usando o `socket.write`, passando o `RESPONSE` como parâmetro, só queremos descobrir a estrutura da _request_. Não esqueca de fechar essa requisição com o `socket.end`.
 
@@ -145,6 +236,8 @@ Crie um novo script (`exploiters/clientExploiter.js`), que utilize a _request_ e
 
 Aqui descobrimos como é uma response HTTP sem encapsulá-la.
 
+### Observação técnica 
+
 > **Dica 1**: Na request (que é a saída do console do node do primeiro requisito) existem características que indicam ao HTTP onde a request finaliza, então, tenha certeza que pegou todo o conteúdo, inclusive quebras de linhas. Para representar as quebras de linhas você pode utilizar "template strings".
 
 > **Dica 2**: Ao pegar a request, gaste algum tempo lendo a mesma e perceberá que uma das propriedades da request, a **Host** tem o endereço que você tentou acessar antes.
@@ -158,6 +251,8 @@ Aqui descobrimos como é uma response HTTP sem encapsulá-la.
 ### 3 - Criar um server TCP utilizando o módulo net capaz de responder com uma mensagem HTTP
 
 Utilizando a _response_ capturada no [requisito anterior (2)](#-2---Criar-um-script-utilizando-o-módulo-net-capaz-de-realizar-um-chamada-HTTP-a-um-server), faça um _server_ (`exploiters/httpServer.js`) que responda uma página HTML, faça as devidas modificações na response para que retorne uma mensagem com o **status code HTTP 200**.
+
+### Observação técnica 
 
 > **Dica 1**: Você pode começar fazendo um servidor, será muito parecido sintaticamente com o que fizemos no requisito 1, porém agora vamos ter que passar uma requisição que esteja corretamente montada para o método `write`.
 
@@ -183,6 +278,8 @@ Outro ponto importante é estar sempre atento a porta que estamos expondo do nos
 Adicione no arquivo `instructions.json` o passo-a-passo com os comandos `ngrok` e `Node.js` para executar e realizar a publicação do projeto.
 
 Adicione no arquivo `instructions.json` na chave token o seu token **atráves dele que o avaliador irá usar o ngrok**.
+
+### Observação técnica 
 
 > **Dica 1**: Consulte o `getting started - setup`na [página](https://dashboard.ngrok.com/get-started/setup) para instalar o `ngrok` corretamente.
 
@@ -216,6 +313,8 @@ No projeto temos o arquivo `location.js`, responsável por fazer a _request_ HTT
 
 - headers: Adicione o header "Content-Type", com o valor "application/x-www-form-urlencoded".
 
+### Observação técnica 
+
 > **Dica 1**: Aqui vamos escrever as informações necessárias para fazer uma requisição, então é só preencher o objeto corretamente.
 
 > **Dica 2**: Nesse momento, não dá para testar o requisito, pois faltam informações, se prestarmos atenção ao código do `location.js`, veremos que a função `getLocationInfos` recebe um parâmetro que não está sendo utilizado. Os próximos requisitos utilizarão esse parâmetro e aí sim esse requisito aqui poderá ser testado.
@@ -238,6 +337,8 @@ No arquivo `index.js` do projeto, altere a variável `startOfResponse` para rece
 
 - Header "Content-Type" como "text/html; charset=UTF-8".
 
+### Observação técnica 
+
 > **Dica 1**: Antes de começar a trabalhar nesse requisito, leia o código do arquivo `index.js` com atenção, ele vai lhe dar pistas sobre o que você precisará fazer aqui e o contexto do código a ser escrito.
 
 > **Dica 2**: Mais uma vez, não esqueça das quebras de linhas 😉. Não é necessário nenhum outro header além do "Content-Type".
@@ -252,6 +353,8 @@ No arquivo `index.js` do projeto, altere a variável `startOfResponse` para rece
 
 Ainda no arquivo `index.js`, altere a variável `endOfResponse` para receber a estrutura utilizada pelo HTTP para informar o fim de uma request.
 
+### Observação técnica 
+
 > **Dica 1**: Ainda precisa de mais código para funcionar, continue adiante!
 
 ### Além disso, as seguintes verificações serão feitas:
@@ -261,6 +364,8 @@ Ainda no arquivo `index.js`, altere a variável `endOfResponse` para receber a e
 ### 8 - Identificar o endereço de IP do client
 
 Utilizando a função `getHeaderValue`, extraia do data o header `X-Forwarded-For`. Esse header será adicionado pelo nosso túnel automaticamente, contendo o endereço de IP do _client_. Passe esse IP para a função `getLocationInfos`, para que possamos extrair dados através dele.
+
+### Observação técnica 
 
 > **Dica 1**: Converta o data para String antes de extrair os headers.
 
@@ -280,6 +385,8 @@ Utilizando a função `getHeaderValue`, extraia do data o header `X-Forwarded-Fo
 
 Agora, no arquivo `location`, **antes de finalizar a request**, adicione uma linha que envie o ip do cliente, utilizando o método `write` da requisição. A _API_ espera receber a seguinte mensagem texto: "ip=CLIENT_IP".
 
+### Observação técnica 
+
 > **Dica 1**: A API espera receber um body sem nenhuma formatação. Envie a string conforme exemplo, substituindo o `CLIENT_IP` pela variável recebida no método.
 
 > **Dica 2**: Atente-se para o fato que em nosso código, `responses` são chamadas de `res` e `requests` são chamadas de `req`.
@@ -294,6 +401,8 @@ Agora, no arquivo `location`, **antes de finalizar a request**, adicione uma lin
 
 Adicione mais um comando `write`, na estrutura do response do arquivo `index.js`, para responder com o endereço de IP do _client_ extraído no [requisito 8](#-8---Identificar-o-endereço-de-IP-do-client).
 
+### Observação técnica 
+
 - Adicione uma tag `data-testid="ip"` junto ao texto do client_ip.
 
 ### Além disso, as seguintes verificações serão feitas:
@@ -303,6 +412,8 @@ Adicione mais um comando `write`, na estrutura do response do arquivo `index.js`
 ### 11 - Responder informações extraídas através do IP do client
 
 Adicione mais comandos `write`, na estrutura do response. A resposta da API `iplocation` deverá conter as seguintes informações:
+
+### Observação técnica 
 
 - Cidade;
    - E adicione a tag `data-testid="city"` para o front.
@@ -329,6 +440,8 @@ Adicione mais comandos `write`, na estrutura do response. A resposta da API `ipl
 
 Utilizando também a função para extrair informações dos _headers_ da _request_, extraia o conteúdo do _header_ `User-Agent` e o adicione na estrutura da response.
 
+### Observação técnica 
+
 > **Dica**: Converta o data para String antes de extrair os headers.
 
    - E adicione a tag `data-testid="device"` para o front.
@@ -340,6 +453,8 @@ Utilizando também a função para extrair informações dos _headers_ da _reque
 ### 13 - Responder a request com os resources do Server
 
 Ao identificar a correspondência do [requisito anterior (12)](#-12---Criar-um-endpoint-/server), utilizando os módulos nativos do `node.js` para chamadas ao sistema operacional, responda, ao invés dos dados do _client_, dados do server:
+
+### Observação técnica 
 
 - O Sistema Operacional, sua versão e arquitetura;
    - E adicione a tag `data-testid="arch"` para o front.
@@ -355,39 +470,35 @@ de cada um;
 
 ---
 
-### DURANTE O DESENVOLVIMENTO
+### Depois de terminar o desenvolvimento
 
-- Faça `commits` das alterações que você fizer no código regularmente
+Para **"entregar"** seu projeto, siga os passos a seguir:
 
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
+  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
+  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
 
-- Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
----
-
-### DEPOIS DE TERMINAR O DESENVOLVIMENTO (OPCIONAL)
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
+⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo **Lint** estão resolvidas! ⚠
 
 ---
 
-### REVISANDO UM PULL REQUEST
+### Revisando um pull request
 
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
+À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
 
-#VQV
+Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
+
+---
+
+# Avisos Finais
+
+Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
+
+Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
+
+O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+
+---
